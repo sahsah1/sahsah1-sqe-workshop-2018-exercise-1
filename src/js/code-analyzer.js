@@ -30,7 +30,7 @@ const parseByType ={
     'ReturnStatement': parseReturn
 };
 
-function parseFunction(exp){
+export function parseFunction(exp){
     var arr = [];
     arr.push(exp['loc']['start']['line']);
     arr.push('function declaration');
@@ -128,7 +128,7 @@ function parseReturn(exp){
 }
 
 function checkAlternate(exp, key) {
-    if(key == 'alternate' && exp[key]['type'] == 'IfStatement'){
+    if(key == 'alternate' && exp[key] != null && exp[key]['type'] == 'IfStatement'){
         isElseIf = true;
     }
 }
