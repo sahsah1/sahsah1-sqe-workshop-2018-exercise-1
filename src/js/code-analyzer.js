@@ -133,27 +133,7 @@ function checkAlternate(exp, key) {
     }
 }
 
-function createHTMLTable(arr){
-    var result = '<thead>';
-    result += '<tr>';
-    result += '<th>' + 'Line' + '</th>';
-    result += '<th>' + 'Type' + '</th>';
-    result += '<th>' + 'Name' + '</th>';
-    result += '<th>' + 'Condition' + '</th>';
-    result += '<th>' + 'Value' + '</th>';
-    result += '</tr>' + '</thead>';
-    for(var i=0; i<arr.length; i++) {
-        result += '<tr>';
-        for(var j=0; j<arr[i].length; j++){
-            result += '<td>' + arr[i][j]+'</td>';
-        }
-        result += '</tr>';
-    }
-    return result;
-}
-
 export {parseCode};
 export {parse};
 export {tableData};
-export {createHTMLTable};
 

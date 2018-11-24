@@ -2,7 +2,6 @@ import $ from 'jquery';
 import {parseCode} from './code-analyzer';
 import {parse} from './code-analyzer';
 import {tableData} from './code-analyzer';
-import {createHTMLTable} from './code-analyzer';
 
 $(document).ready(function () {
     $('#codeSubmissionButton').click(() => {
@@ -15,3 +14,22 @@ $(document).ready(function () {
         //$('#parsedCode').val(JSON.stringify(parsedCode['body'][0], null, 2));
     });
 });
+
+function createHTMLTable(arr){
+    var result = '<thead>';
+    result += '<tr>';
+    result += '<th>' + 'Line' + '</th>';
+    result += '<th>' + 'Type' + '</th>';
+    result += '<th>' + 'Name' + '</th>';
+    result += '<th>' + 'Condition' + '</th>';
+    result += '<th>' + 'Value' + '</th>';
+    result += '</tr>' + '</thead>';
+    for(var i=0; i<arr.length; i++) {
+        result += '<tr>';
+        for(var j=0; j<arr[i].length; j++){
+            result += '<td>' + arr[i][j]+'</td>';
+        }
+        result += '</tr>';
+    }
+    return result;
+}
