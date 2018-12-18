@@ -119,8 +119,9 @@ describe('The parse statement parser', () => {
         assert.deepEqual(tableData[2], [3,'for statement','','i <= 5','']);
         assert.deepEqual(tableData[3], [3,'assignment expression','i','',0]);
         assert.deepEqual(tableData[4], [3,'assignment expression','i','','i++']);
-        assert.deepEqual(tableData[5], [4,'assignment expression','x','','x + i']);
-        assert.deepEqual(tableData[6], [6,'return statement','','','x']);
+        assert.deepEqual(tableData[5], [3,'update expression','','','i++']);
+        assert.deepEqual(tableData[6], [4,'assignment expression','x','','x + i']);
+        assert.deepEqual(tableData[7], [6,'return statement','','','x']);
         tableData.length = 0;
     });
 });

@@ -27,7 +27,8 @@ const parseByType ={
     'WhileStatement': parseWhile,
     'ForStatement': parseFor,
     'IfStatement': parseIf,
-    'ReturnStatement': parseReturn
+    'ReturnStatement': parseReturn,
+    'UpdateExpression': parseUpdate
 };
 
 export function parseFunction(exp){
@@ -75,7 +76,8 @@ function parseAssignExp(exp){
     var arr = [];
     arr.push(exp['loc']['start']['line']);
     arr.push('assignment expression');
-    arr.push(exp['left']['name']);
+    //arr.push(exp['left']['name']);
+    arr.push(escodegen.generate(exp['left']));
     arr.push('');
     arr.push(escodegen.generate(exp['right']));
     tableData.push(arr);
@@ -124,6 +126,16 @@ function parseReturn(exp){
     arr.push('');
     arr.push('');
     arr.push(escodegen.generate(exp['argument']));
+    tableData.push(arr);
+}
+
+function parseUpdate(exp){
+    var arr = [];
+    arr.push(exp['loc']['start']['line']);
+    arr.push('update expression');
+    arr.push('');
+    arr.push('');
+    arr.push(exp['argument']['name'] + exp['operator']);
     tableData.push(arr);
 }
 
